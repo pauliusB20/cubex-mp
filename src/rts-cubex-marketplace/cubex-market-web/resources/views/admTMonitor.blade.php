@@ -112,8 +112,8 @@
  </table>
  </div>
  @endif
- <div class = "card admin-items-result2">
-   <div class="row">
+ <div class = "card">
+   <div class="row_admin_cards">
         @isset($totalUserRecordCount)
         <div class = "col-lg-3 col-6">
             <div class = "small-box bg-info">

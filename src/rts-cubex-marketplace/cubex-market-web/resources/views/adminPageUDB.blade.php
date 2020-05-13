@@ -19,8 +19,9 @@
                  <th>Nickname</th>
                  <th>Web status</th>
                  <th>Game status</th>
-                 <th>role</th>
-                 <th>Reg. Date</th>
+                 <th>Role</th>
+                 <th>Reg. date</th>
+                 <th>Select</th>
               </tr>
           </thead>
 
@@ -29,7 +30,9 @@
     </tbody>
     <script>
     $(document).ready(function () {
+    $.ajaxSetup({ headers: { 'csrftoken': '{{ csrf_token() }}' } });
     if ($("#search").val().length == 0) {
+        toastr.info('Trying to load initial records! Please wait!...', 'Information', {timeOut: 4000});
         var value = $(this).val();
         $.ajax({ //Sends an ajax request to a searchusers controller
             url: "{{route('searchusers', "+value+")}}", //controller route name
@@ -38,25 +41,28 @@
             success: function (data) {
                 document.getElementById('search_results').innerHTML = "";
                 for (var record = 0; record < data.length; record++){
-                    $('#search_results').append("<tr><th><button id = 'btnId' class = 'btn btn-info' data-toggle='modal' data-target='#userWindow"+data[record].id+"'>"+data[record].id+"</button></th><th>"+
-                                                        data[record].nickname+"</th><th>"+
-                                                        data[record].status_in_web+"</th><th>"+
-                                                        data[record].status_in_game+"</th><th>"+
-                                                        data[record].role+"</th><th>"+
-                                                        data[record].reg_date+"</th><tr/>");
+                    $('#search_results').append(`<tr><th><button id = 'btnId' class = 'btn btn-info' data-toggle='modal' data-target='#userWindow`+data[record].id+`'>`+data[record].id+`</button></th><th>`+
+                                                        data[record].nickname+`</th><th>`+
+                                                        data[record].status_in_web+`</th><th>`+
+                                                        data[record].status_in_game+`</th><th>`+
+                                                        data[record].role+`</th><th>`+
+                                                        data[record].reg_date+`</th>
+                                                        <th>
+                                                            <input type="checkbox" id="userRecord`+data[record].id+`" name="`+data[record].role+`" value="`+data[record].id+`">
+                                                        </th><tr/>`);
                     // Modal code
                     $('#search_results').append(`<div class = 'modal fade' id ='userWindow`+data[record].id+`' role='dialog'>
                                                     <div class='modal-dialog'>
                                                         <div class='modal-content'>
-                                                            <div class='modal-header'>
-                                                                <h4 class = 'modal-title'>
+                                                            <div class='modal-header-admin'>
+                                                                <h4 class = 'modal-title-admin'>
                                                                     User profile information
                                                                 </h4>
-                                                                <button type = 'button' class='close' data-dismiss='modal'>
+                                                                <button type = 'button' class='modal-admin-close' data-dismiss='modal'>
                                                                     &times
                                                                 </button>
                                                             </div>
-                                                        <div class='modal-body'>
+                                                        <div class='modal-body-user-block-admin'>
 
                                                         <p>
                                                             Nickname: `+data[record].nickname+`<br/>
@@ -74,27 +80,29 @@
                                                             </tr>
 
 
-                                                                <tr>
-                                                                    <td class = 'cbm-item-atable'>energon</td>
-                                                                    <td class = 'cbm-item-atable'>
-
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class = 'cbm-item-atable'>credits</td>
-                                                                    <td class = 'cbm-item-atable'>
-
-                                                                    </td>
-                                                                </tr>
+                                                            <tr>
+                                                                <td class = 'cbm-item-atable'>energon</td>
+                                                                <td class = 'cbm-item-atable'>`+data[record].energon+`</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class = 'cbm-item-atable'>credits</td>
+                                                                <td class = 'cbm-item-atable'>`+data[record].credits+`</td>
+                                                            </tr>
                                                         </table>
-
+                                                        <!--<table class = 'cbm-admin-userinfo-table'>
+                                                            <tr>
+                                                                <td colspan=2 class = 'cbm-table-title'>Wallet data</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Wallet address</td>
+                                                                <td>`+data[record].wallet_address+`</td>
+                                                            </tr>
+                                                        <table>-->
                                                             <h2>Wallet data</h2>
                                                             <p>Wallet address:<br/>`+data[record].wallet_address+`</p>
                                                             <p>Public Key:<br/>`+data[record].public_key+`</p>
                                                             <p>Private Key:<br/>`+data[record].private_key+`</p>
-
-                                                            <button class = 'btn btn-danger' id='deluser`+data[record].id+`'>Delete user</button>
-
+                                                            <p>Owned token amount: `+data[record].tokens+` CubeCoin</p>
 
                                                         </div>
                                                         <div class = 'modal-footer'>
@@ -113,101 +121,146 @@
             method: 'get',
             data: { 'query': value },
             success: function (data) {
-                document.getElementById('search_results').innerHTML = "";
-                for (var record = 0; record < data.length; record++){
-                    var scriptDelete = document.createElement("script");
-                    scriptDelete.type = "text/javascript";
-                    scriptDelete.src = "{{ asset('dist/js/test.js') }}";
+                        document.getElementById('search_results').innerHTML = "";
+                        for (var record = 0; record < data.length; record++){
+                            $('#search_results').append(`<tr><th><button id = 'btnId' class = 'btn btn-info' data-toggle='modal' data-target='#userWindow`+data[record].id+`'>`+data[record].id+`</button></th><th>`+
+                                                                data[record].nickname+`</th><th>`+
+                                                                data[record].status_in_web+`</th><th>`+
+                                                                data[record].status_in_game+`</th><th>`+
+                                                                data[record].role+`</th><th>`+
+                                                                data[record].reg_date+`</th>
+                                                                <th>
+                                                                    <input type="checkbox" id="userRecord`+data[record].id+`" name="`+data[record].role+`" value="`+data[record].id+`">
+                                                                </th><tr/>`);
+                            // Modal code
+                            $('#search_results').append(`<div class = 'modal fade' id ='userWindow`+data[record].id+`' role='dialog'>
+                                                            <div class='modal-dialog'>
+                                                                <div class='modal-content'>
+                                                                    <div class='modal-header-admin'>
+                                                                        <h4 class = 'modal-title-admin'>
+                                                                            User profile information
+                                                                        </h4>
+                                                                        <button type = 'button' class='close' data-dismiss='modal'>
+                                                                            &times
+                                                                        </button>
+                                                                    </div>
+                                                                <div class='modal-body-user-block-admin'>
 
-                    $('#search_results').append("<tr><th><button id = 'btnId' class = 'btn btn-info' data-toggle='modal' data-target='#userWindow"+data[record].id+"'>"+data[record].id+"</button></th><th>"+
-                                                        data[record].nickname+"</th><th>"+
-                                                        data[record].status_in_web+"</th><th>"+
-                                                        data[record].status_in_game+"</th><th>"+
-                                                        data[record].role+"</th><th>"+
-                                                        data[record].reg_date+"</th><tr/>");
-                    // Modal code
-                    $('#search_results').append(`<div class = 'modal fade' id ='userWindow`+data[record].id+`' role='dialog'>
-                                                    <div class='modal-dialog'>
-                                                        <div class='modal-content'>
-                                                            <div class='modal-header'>
-                                                                <h4 class = 'modal-title'>
-                                                                    User profile information
-                                                                </h4>
-                                                                <button type = 'button' class='close' data-dismiss='modal'>
-                                                                    &times
-                                                                </button>
+                                                                <p>
+                                                                    Nickname: `+data[record].nickname+`<br/>
+                                                                    Email: `+data[record].email+`<br/>
+                                                                    Role: `+data[record].role+`<br/>
+                                                                </p>
+
+                                                                <table class = 'cbm-admin-userinfo-table'>
+                                                                    <tr>
+                                                                        <td colspan=2 class = 'cbm-table-title'>Current user resources</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class = 'cbm-item-atable'>Resource type</td>
+                                                                        <td class = 'cbm-item-atable'>amount</td>
+                                                                    </tr>
+
+
+                                                                        <tr>
+                                                                            <td class = 'cbm-item-atable'>energon</td>
+                                                                            <td class = 'cbm-item-atable'>`+data[record].energon+`
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class = 'cbm-item-atable'>credits</td>
+                                                                            <td class = 'cbm-item-atable'>`+data[record].credits+`
+
+                                                                            </td>
+                                                                        </tr>
+                                                                </table>
+
+                                                                    <h2>Wallet data</h2>
+                                                                    <p>Wallet address:<br/>`+data[record].wallet_address+`</p>
+                                                                    <p>Public Key:<br/>`+data[record].public_key+`</p>
+                                                                    <p>Private Key:<br/>`+data[record].private_key+`</p>
+                                                                    <p>Owned token amount: `+data[record].tokens+` CubeCoint</p>
+
+                                                                </div>
+                                                                <div class = 'modal-footer'>
+                                                                </div>
                                                             </div>
-                                                        <div class='modal-body'>
-
-                                                        <p>
-                                                            Nickname: `+data[record].nickname+`<br/>
-                                                            Email: `+data[record].email+`<br/>
-                                                            Role: `+data[record].role+`<br/>
-                                                        </p>
-
-                                                        <table class = 'cbm-admin-userinfo-table'>
-                                                            <tr>
-                                                                <td colspan=2 class = 'cbm-table-title'>Current user resources</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class = 'cbm-item-atable'>Resource type</td>
-                                                                <td class = 'cbm-item-atable'>amount</td>
-                                                            </tr>
-
-
-                                                               <tr>
-                                                                    <td class = 'cbm-item-atable'>energon</td>
-                                                                    <td class = 'cbm-item-atable'>
-
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class = 'cbm-item-atable'>credits</td>
-                                                                    <td class = 'cbm-item-atable'>
-
-                                                                    </td>
-                                                                </tr>
-                                                        </table>
-
-                                                            <h2>Wallet data</h2>
-                                                            <p>Wallet address:<br/>`+data[record].wallet_address+`</p>
-                                                            <p>Public Key:<br/>`+data[record].public_key+`</p>
-                                                            <p>Private Key:<br/>`+data[record].private_key+`</p>
-
-                                                            <button class = 'btn btn-danger' id='deluser`+data[record].id+`'>Delete user</button>
-                                                            <h1 id ="testtext"></h1>
-
                                                         </div>
-                                                        <div class = 'modal-footer'>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>`);
-                            // $('#search_results').appendChild(scriptDelete);
-
+                                                    </div>`);
                         }
-
                     }
                 });
             })
         });
-        $.ajaxSetup({ headers: { 'csrftoken': '{{ csrf_token() }}' } });
+
     </script>
     </table>
 </div>
 
 
-<!-- <div class = "card admin-items-result2 admin-user-mon">
-    <form action = "deleteUser" method = "post">
-      <input type = "hidden"  name = "_token" value = "<?php echo csrf_token(); ?>"/>
-      <h3 class = "style-for-form">Delete user id:</<h3>  <input type = "text" name="del_id"/>
-      <input type = "submit" value = "Delete user"/>
-     </form>
-</div> -->
+<div class = "card admin-items-result2 admin-user-mon">
+    <button class = 'btn btn-danger' id='deluser'>Delete selected users</button>
+    <script>
+         $(document).ready(function () {
+            $.ajaxSetup({ headers: { 'csrftoken': '{{ csrf_token() }}' } });
+            $('#deluser').on('click',function() {
+                var checkboxes = document.getElementsByName('userCh');
+                var selectCount = 0;
+
+                for (var cbox = 0; cbox < checkboxes.length; cbox++)
+                {
+                    if (checkboxes[cbox].checked)
+                        selectCount++;
+                }
+                if (selectCount > 0)
+                {
+                    toastr.info('Trying to delete the selected users...', 'Information', {timeOut: 5000});
+                    for (var cbox = 0; cbox < checkboxes.length; cbox++)
+                    {
+                        if (checkboxes[cbox].checked && checkboxes[cbox].name != "admin")
+                        {
+                            // console.log(checkboxes[cbox].value);
+                            userID = checkboxes[cbox].value;
+                            $.ajaxSetup({
+                            headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                            });
+                            $.ajax({
+                                    url : "{{route('deleteUser', " + userID + ")}}",
+                                    method: 'post',
+                                    data: { 'id': userID },
+                                    success: function (data) {
+                                        if (data == "refresh"){
+                                             toastr.success('Success! User was deleted!', 'Success Alert', {timeOut: 5000});
+                                             window.location.reload(); // This is not jQuery but simple plain ol' JS
+                                        }
+                                      }
+                                    });
+                        }
+                        else
+                        {
+                            toastr.error("Can't delete users! Admins were selected or no users were selected!", 'Information', {timeOut: 5000});
+                        }
+                    }
+
+                }
+                else
+                {
+                    toastr.error("Can't delete users! No users were selected!", 'Information', {timeOut: 5000});
+                }
+
+            });
+         });
 
 
-<div class = "card admin-items-result2">
-   <div class="row">
+    </script>
+</div>
+
+
+<div class = "card">
+   <div class="row_admin_cards">
         @isset($totalUserRecordCount)
         <div class = "col-lg-3 col-6">
             <div class = "small-box bg-info">

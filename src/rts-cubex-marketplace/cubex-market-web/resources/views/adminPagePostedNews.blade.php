@@ -37,11 +37,11 @@
                     <div class = "modal fade" id ="postWindow{{$news->id}}" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class = "modal-title">Posted news article information</h4>
+                                        <div class="modal-header-admin">
+                                            <h4 class = "modal-title-admin">Posted news article information</h4>
                                             <button type = "button" class="close" data-dismiss="modal">&times</button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body-user-block-admin">
                                             <p>
                                                 Title: {{$news->news_title}}<br/>
                                                 Posted by: {{$news->nickname}}<br/>

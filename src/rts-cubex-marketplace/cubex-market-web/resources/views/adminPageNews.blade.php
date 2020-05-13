@@ -5,7 +5,7 @@
          <i class="ion ion-clipboard mr-1"></i>CubeMarket Admin news posting panel
  </h1> -->
 <div class = "card">
-    <div class = "col-md-6">
+   
     <!-- Form for posting news on the CubeMarket platform -->
     <!-- NOTE: Fix css -->
         <div class="box box-primary">
@@ -20,8 +20,8 @@
                                 <label>News title</label><br/>
                                 <input type = "text" name="news_title" class = "form-control" required><br/>
                                 <label>News article</label><br/>
-                                    <textarea class = "textarea" name="newsarticle" col="30" form="news_postform" placeholder="Enter article here..." required></textarea><br/>
-                                <input type = "submit" value = "Post" id = "newsformbtn"/>
+                                <textarea class = "textarea" name="newsarticle" col="30" form="news_postform" placeholder="Enter article here..." required></textarea><br/>
+                                <input class = "btn bg-info" type = "submit" value = "Post" id = "newsformbtn"/>
                             </form>
                         <div>
                         <!-- NOTE: Not working yet -->
@@ -45,7 +45,7 @@
             </div>
         </div>
         <!-- end code for news form -->
-    </div>
+    
 </div>
 <!-- <div class ="card">
 <h2 class = "m-0 text-dark">

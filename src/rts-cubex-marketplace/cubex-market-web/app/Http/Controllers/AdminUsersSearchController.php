@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
 class AdminUsersSearchController extends AdminBaseController
 {
     // Add aditional search results
@@ -38,6 +37,16 @@ class AdminUsersSearchController extends AdminBaseController
                               get();
             if($users)
             {
+                foreach($users as $user)
+                {
+                    // Expanding the created query by adding additional attributes to user records
+                    $user["credits"] = $this->getResourceCountByUserId("credits", $user->id, "web");
+                    $user["energon"] = $this->getResourceCountByUserId("energon", $user->id, "web");
+                    if (!empty($user->wallet_address))
+                        $user["tokens"] = $this->getUserBalance($user->wallet_address);
+                    else
+                        $user["tokens"] = 0;
+                }
                 // foreach ($users as $user) {
                 // $output.='<tr>'.
                 //         '<td><button id = "btnId" class = "btn btn-info" data-toggle="modal" data-target="#userWindow'.$user->id.'">'.$user->id.'</button>
@@ -189,7 +198,7 @@ class AdminUsersSearchController extends AdminBaseController
                                                     url : "{{route('deleteUser', '$user->id')}}",
                                                     method: 'post',
                                                     data: { 'id': userID },
-                                                    success: function (data) {                            
+                                                    success: function (data) {
                                                         if (data == "refresh"){
                                                             toastr.success('Success! User was deleted!', 'Success Alert', {timeOut: 5000});
                                                             window.location.reload(); // This is not jQuery but simple plain ol' JS
@@ -216,7 +225,7 @@ class AdminUsersSearchController extends AdminBaseController
                         </tr>
     @endforeach
     @endisset
-        
+
         */
     }
 }

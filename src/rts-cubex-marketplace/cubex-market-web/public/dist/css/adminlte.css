@@ -279,7 +279,7 @@ textarea {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
-    line-height: inherit;
+    line-height: inherit;        
 }
 
 button,
@@ -648,6 +648,10 @@ pre code {
     flex-wrap: wrap;
     margin-right: -7.5px;
     margin-left: -7.5px;
+}
+.row_admin_cards {  
+    display: flex;
+    overflow-x:scroll;
 }
 /* New row class for search box */
 .row_search{
@@ -5394,23 +5398,44 @@ body:not(.modal-open){
   position: relative;
   flex: 1 1 auto;
 }
+.modal-header-admin {
+    display:flex;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid rgb(80, 79, 82);
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;   
+    flex: 1 1 auto;
+  }
 
 .modal-header .close,
+.modal-header-admin .mailbox-attachment-close {
+    margin: -1rem -1rem -1rem auto;
+}
 .modal-header .mailbox-attachment-close {
     padding: 1rem;
     margin: -1rem -1rem -1rem auto;
 }
-
-.modal-title {
+.modal-title-admin {
   margin-bottom: 0;
   line-height: 1.5;
-  margin-left:118px;
+  margin-left:3em;
 }
-
+.modal-admin-close{
+    margin-left:2em;
+    padding: 5px 5px;
+}
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    margin-left:118px;
+  }
 .modal-body {
   padding: .9rem; /*Old value: 1rem*/
   text-align: center;
 }
+.modal-body-user-block-admin {
+    padding: 1rem; /*Old value: 1rem*/    
+  }
 .modal-body2{
   padding: 1rem;
   text-align: center;
@@ -11027,7 +11052,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 
 .small-box>.inner {
-    padding: 1px;
+    padding: 0.5px;
     text-align: center;
 }
 
@@ -13881,15 +13906,15 @@ a.text-muted:hover {
     border-bottom-left-radius: 3px;
     padding: 10px;
 }
-.posted-article-text{    
+.posted-article-text{
     margin-left:3em;
     text-overflow: ellipsis;
     display: block;
-    line-height: 16px;    
+    line-height: 16px;
     max-height: 150px;
-    word-wrap: break-word;     
-    -webkit-line-clamp: 6; /* Write the number of 
-                              lines you want to be 
+    word-wrap: break-word;
+    -webkit-line-clamp: 6; /* Write the number of
+                              lines you want to be
                               displayed */
     -webkit-box-orient: vertical;
     overflow-y: scroll;
@@ -13910,13 +13935,13 @@ a.text-muted:hover {
     margin-left:3em;
     text-overflow: ellipsis;
     display: block;
-    line-height: 16px;    
+    line-height: 16px;
     max-height: 150px;
-    word-wrap: break-word;     
-    -webkit-line-clamp: 6; /* Write the number of 
-                              lines you want to be 
+    word-wrap: break-word;
+    -webkit-line-clamp: 6; /* Write the number of
+                              lines you want to be
                               displayed */
-    -webkit-box-orient: vertical;   
+    -webkit-box-orient: vertical;
 }
 .admin-posted-news-header{
     font-size:1.5em;

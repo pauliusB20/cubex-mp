@@ -176,6 +176,13 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
+              <a href="{{ route('adminPage') }}" class="nav-link
+              ">
+                <i class="nav-icon fa fa-dashboard"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="/market" class="nav-link
               ">
                 <i class="nav-icon fa fa-dashboard"></i>
@@ -189,13 +196,7 @@
                 <p>Resource market items</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="{{ route('adminPage') }}" class="nav-link
-              ">
-                <i class="nav-icon fa fa-dashboard"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
+            
             <li class ="nav-item">
                <a href ="{{route('newspost')}}" class="nav-link">
                <i class="nav-icon fa fa-th"></i>

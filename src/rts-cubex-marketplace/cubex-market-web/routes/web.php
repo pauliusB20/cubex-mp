@@ -54,7 +54,7 @@ Route::get('/resets', 'resetSearchFields@resetField')->name('reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/adminPage', 'CubeChartController@index')->name('adminPage'); //Fix the to long loading chart
+Route::get('/adminPage', 'displayData@loadDashBoard')->name('adminPage'); //Fix the to long loading chart
 
 
 Route::get('/adminPageUDB', 'displayData@loadUDBPage')->name('adminPageUDB');

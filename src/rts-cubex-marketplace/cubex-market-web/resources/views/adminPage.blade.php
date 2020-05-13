@@ -8,7 +8,7 @@
 <div class = "card">
 
 
-<div class="row">
+<div class="row_admin_cards">
         @isset($totalUserRecordCount)
         <div class = "col-lg-3 col-6">
             <div class = "small-box bg-info">
@@ -38,7 +38,7 @@
                             <p>Online users in web count</p>
                         </div>
                     </div>
-                </div>
+                </div><br/>
             @endisset
             @isset($totalUserOfflineInGameCount)
                 <div class = "col-lg-3 col-6">
@@ -61,11 +61,10 @@
                 </div>
             @endisset
     </div>
+
 </div>
 <div class = "card">
-@isset($hdiagram)
-{!! $hdiagram->container() !!}
-@endisset
+
 </div>
 <div class = "card">
 <!-- Diagram -->

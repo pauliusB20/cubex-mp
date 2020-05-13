@@ -67,6 +67,18 @@ class AdminBaseController extends Controller
     // Sharing generated diagrams
 
   }
+//   function getBelongingUserItemById($user_id)
+//   {
+//     $userBelongingItems = DB::select("select item_id, user_id, item_name, item_code from inventory inner join item on inventory.item_id = item.id;");
+//     $temp = array();
+//     foreach ($userBelongingItems as $item)
+//     {
+//         if($item->user_id == $user_id)
+//         {
+//             $temp[] = $item->item_name;
+//         }
+//     }
+//   }
   function getResourceCountByUserId($res_type, $user_id, $countkey)
   {
 

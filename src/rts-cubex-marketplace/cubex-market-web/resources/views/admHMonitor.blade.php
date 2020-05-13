@@ -1,10 +1,10 @@
 @extends((!isset(Auth::user()->id))? 'layouts.guest': ((Auth::user()->role == 'admin') ? 'layouts.admin' : 'layouts.user'))
-
+@section('title-block') Login history monitor @endsection('title-block')
 @section('content')
 <div class = "card admin-style-1">
     <div class = "row" style="margin-top: 5px;">
         <h1 class = "card-title admin-card-title">
-            <i class="ion ion-clipboard mr-1"></i>User login history monitor in the CubeMarket platform<br/>and in the Cubex game
+            <i class="ion ion-clipboard mr-1"></i><b>User market and game login history monitor</b> 
         </h1>
         <br/>
         <form action="/searchUserHistory" method="POST" role="search">
@@ -67,12 +67,12 @@
 <!-- History monitor code goes here -->
  <table border = "1">
    <tr>
-      <td>h_id</td>
-      <td>registered username</td>
-      <td>Login time</td>
-      <td>Logout time</td>
-      <td>Ip</td>
-      <td>User place</td>
+      <td><b>h_id</b></td>
+      <td><b>Registered username</b></td>
+      <td><b>Login time</b></td>
+      <td><b>Logout time</b></td>
+      <td><b>Ip</b></td>
+      <td><b>User place</b></td>
    </tr>
    <!-- Code for displaying all happened transactions -->
    @php
@@ -97,8 +97,8 @@
  </table>
 
  </div>
- <div class = "card admin-items-result2">
-   <div class="row">
+ <div class = "card">
+   <div class="row_admin_cards">
         @isset($totalUserRecordCount)
         <div class = "col-lg-3 col-6">
             <div class = "small-box bg-info">
