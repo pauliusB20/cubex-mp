@@ -1,0 +1,19 @@
+.cbm-table-title {
+    text-align: center;
+}
+
+.cbm-admin-userinfo-table,
+.cbm-item-atable {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.cbm-admin-userinfo-table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.cbm-item-atable {
+    padding: 15px;
+}

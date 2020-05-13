@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e316fb534282894f9590c060d2c10e0, type: 3}
+  m_Name: MBuildingStructList
+  m_EditorClassIdentifier: 
+  mBaseStructures:
+  - buildingStucture: {fileID: 8388967100345429153, guid: f55b2b6bae1a2b644869947ccf8dc9f6,
+      type: 3}
+    buildingCode: eambc
+    buildingPrice: 15
+    requiredEnergonAmount: 5
+  - buildingStucture: {fileID: 9213277515873755022, guid: 837c4a6409ea671418b425bfa86e2c33,
+      type: 3}
+    buildingCode: eambb
+    buildingPrice: 10
+    requiredEnergonAmount: 5
+  - buildingStucture: {fileID: 5804624399796005984, guid: 3a74bf59895952243990c7ddd01994e3,
+      type: 3}
+    buildingCode: eamrc
+    buildingPrice: 25
+    requiredEnergonAmount: 8
+  - buildingStucture: {fileID: 7915753262241481247, guid: 88276dfbf3de5ad4a8d543e7fb4f4035,
+      type: 3}
+    buildingCode: eambrc
+    buildingPrice: 45
+    requiredEnergonAmount: 10
+  - buildingStucture: {fileID: 7144985899718027582, guid: 9d21b7e06d885bf4ba34e0c2bf4d3f3e,
+      type: 3}
+    buildingCode: eamt
+    buildingPrice: 60
+    requiredEnergonAmount: 10
+  - buildingStucture: {fileID: 3541489730312973751, guid: 662cac18eb271894abb03972d2351216,
+      type: 3}
+    buildingCode: eamd
+    buildingPrice: 55
+    requiredEnergonAmount: 12

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788e566b45b10b34eadbdc229ecfae89, type: 3}
+  m_Name: CMReqURLs
+  m_EditorClassIdentifier: 
+  createUserURL: http://127.0.0.1:8000/create
+  userDBDataURL: http://127.0.0.1:8000/rData
+  statusUpdateURL: http://127.0.0.1:8000/updateStatus
+  historyUpdateURL: http://127.0.0.1:8000/historyUpdate
+  marketPageURL: http://127.0.0.1:8000/
+  tokenDataURL: http://127.0.0.1:8000/userTokien
+  sendingItemURL: http://127.0.0.1:8000/cit
+  receivingGameItemsURL: http://127.0.0.1:8000/gameUserItems
+  receivingGameCharURL: http://127.0.0.1:8000/gitemch
+  deletingItemURL: http://127.0.0.1:8000/deleteItemTr
+  resourcesDataURL: http://127.0.0.1:8000/resData
+  resourcesSendingURL: http://127.0.0.1:8000/sendres

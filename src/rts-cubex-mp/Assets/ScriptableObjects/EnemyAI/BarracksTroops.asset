@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e3c164159708346bddb7f3c6d2c663, type: 3}
+  m_Name: BarracksTroops
+  m_EditorClassIdentifier: 
+  troopUnits:
+  - tCode: tlu
+    troopDomeTag: eADome
+    sHealth: 100
+    sDmgPoints: 10
+    troopPriceInCredits: 5
+    troopUnitModel: {fileID: 8572546774208808328, guid: e6471e0cc278a0745af47e55147488a2,
+      type: 3}
+    originalHealth: 100
+    originalDmgPoints: 10
+  - tCode: thu
+    troopDomeTag: eADome
+    sHealth: 200
+    sDmgPoints: 10
+    troopPriceInCredits: 10
+    troopUnitModel: {fileID: 8398573629073815550, guid: 923054e4719ac6141b51eb120f163f21,
+      type: 3}
+    originalHealth: 200
+    originalDmgPoints: 15

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &328384590328692507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328384590328692485}
+  - component: {fileID: 328384590328692484}
+  m_Layer: 0
+  m_Name: GameLevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328384590328692485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328384590328692507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328384590328692484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328384590328692507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d2678edb36cda4e99652d3c5120871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rankConfSystem: {fileID: 11400000, guid: aa7ce020f312c18448eef129b8dbbd31, type: 2}
+  scorePlayerPoints: 0
+  xpPlayerPoints: 0
+  playerWorkerAmount: 0
+  playerTroopAmount: 0
+  playerCollectorAmount: 0
+  playerTurretAmount: 0
+  playerBarrackAmount: 0
+  playerResearchAmount: 0
+  pDestroyedEnemyBaseAmount: 0
+  pDestroyedEnemyUnitAmount: 0
+  scoreEnemyPoints: 0
+  xpEnemyPoints: 0
+  enemyWorkerAmount: 0
+  enemyTroopAmount: 0
+  enemyTurretAmount: 0
+  enemyCollectorAmount: 0
+  enemyBarrackAmount: 0
+  enemyResearchAmount: 0
+  eDestroyedPlayerBaseAmount: 0
+  eDestroyedPlayerUnitAmount: 0
+  sessionStatusText: 
+  sessionRankText: 

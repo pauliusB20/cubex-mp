@@ -1,0 +1,10 @@
+body 
+{
+  background:white
+}
+footer {
+  position: absolute;
+  width:80%;
+  margin-left: 10%;
+  bottom: 0;
+}

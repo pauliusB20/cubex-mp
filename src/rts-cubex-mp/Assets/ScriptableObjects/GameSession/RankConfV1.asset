@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748fe7e6c36a3dd4a8fb48e7d9af7d31, type: 3}
+  m_Name: RankConfV1
+  m_EditorClassIdentifier: 
+  gameRanks:
+  - minReqScore: 0
+    maxReqScore: 20
+    rankName: Private
+  - minReqScore: 20
+    maxReqScore: 40
+    rankName: Soldier
+  - minReqScore: 40
+    maxReqScore: 60
+    rankName: War Veteran

@@ -1,0 +1,85 @@
+2020-02-10
+    Installing the software needed, sharing ideas about the project, discussing what to do next
+2020-02-11
+    Doing more research on the project and ideas, discussing them with L. Būtėnas
+2020-02-12
+    Analysing other games working with Blockchain, preparing a presentation for Thursday seminar
+2020-02-17
+    Writing the Project Schedule
+2020-02-18
+    Unity and webserver connection, generating ideas learning laravel
+2020-02-19
+    Learning php, laravel, fixing unity communication issues with webserver
+2020-02-25
+    Updated our database model, tested out the first in game login and registration system, developed the first version of the
+    in game resources spending system and applied a starting bootstrap theme
+2020-02-28
+    Uploading our project to git, discussing ideas, developing laravel code
+2020-03-03
+    Making the database scheme, searching for Laravel themes, Unity and Webserver communication fixing
+2020-03-04
+    Applying the Laravel theme, designing the website
+2020-03-05
+    Analysing laravel theme code
+2020-03-09
+    Project report (analysis)
+2020-03-10
+    Finishing up the project report, developing the website
+2020-03-17
+    Admin, user, market pages development
+2020-03-18
+     Market webpage, admin page design, web login systems, admin page backend system
+2020-03-19
+    Login system prototype, market items page development, admin tools for transactions and user login history
+2020-03-20
+    Testing Admin user tools and fixing bugs. Also User register and login system adjustments
+2020-03-23
+    Login and register pages improvement, market page backend system development, testing admin user pages
+2020-03-24
+    Merging some of the project parts together, fixing error problems. Created a system to generate testing data, fixing inventory and admin pages
+2020-03-25
+    Created backend system which outputs users items, improved test data generating system and created table search system
+2020-03-26
+    Improvement of admin, user pages. Calculation timer development
+2020-03-27
+    Database adjustments
+2020-03-31
+    Navigational schema and fixing project bugs and errors
+2020-04-01
+    Preparing the presentation, writing a draft report
+2020-04-02
+    Fixing inventory page, merging the project parts, some more improvements
+2020-04-03
+    Website's backed date gathering system, market items time calculation system, fixed inventory items select query and testing admin tools
+2020-04-06
+    Improvements of the timer calculation system, admin search system, and user login
+2020-04-07
+    Improvements of admin search system, login/registration remake, timer calculation system
+2020-04-08
+    Login/registration remake, started creating item posting funkction, admin search system improvements, created a system to take only the necessary information of items
+2020-04-09
+     Further development of item posting, inventory management system, created a functional user register, login, logout system
+2020-04-10
+    Adjusting the game to fit the webpage, improvements of the webpage, login and registration
+2020-04-13
+    Login/register pages improvements, ability to add an item from the game to the website, item buy option
+2020-04-14
+    Starting the website on a virtual machine, user login adjustments, better item management, testing buy/sell system, page privileges
+2020-04-15
+    Item retrieving in game, user accounts, testing market website pages
+2020-04-16
+    Improvements of market system, user accounts, item transactions game<->web
+2020-04-20
+    Preparing for the workshop, fixing bugs
+2020-04-21
+    Learning how to use NEM blockchain, adding and using it with the website
+2020-04-24
+    Improvements of the market, game account inventory and web account systems
+2020-04-26
+    User account system with resources and items adjustments, game and market connection
+2020-04-27
+    Market in-game, market platform and transactions improvements
+2020-04-28
+    Preparing for hack the project seminar, fixing system bugs
+2020-05-05
+    Preparing the presentation, fixing bugs and website server

@@ -1,0 +1,140 @@
+@startuml
+skinparam linetype ortho
+skinparam sequence{
+       ArrowColor #000000
+       LifeLineBorderColor #000000
+       LifeLineBackgroundColor #000000
+}
+scale 2
+class Base {
+    -credits: int
+    -energon: int
+    -worker: GameObject
+    -workerPosition: Transform[]
+    -previousOffset: float[]
+    -Workers: List<GameObject>
+    -barrackWorkers: List<GameObject>
+    -size: int = 2
+    -Deposits: BuildMiningStation[]
+    -barrackSpawnPoints: BuildBarrack[]
+    -workerIndex: int
+    -workerIndex1: int
+    -zTrans: float = 4f
+    -barracksWorkerAmount: int
+    -displayCollectorScreen: bool
+    -addCredits: Text
+    -addEnergon: Text
+    -creditsLeft: Text
+    -energonLeft: Text
+    -Screen1: GameObject
+    -Screen: GameObject
+    -createbuilding: Button
+    -CollectorScreen: GameObject
+    -createEnergonCollector: Button
+    -createBarrackBuilding: Button
+    -Start()
+    -Update()
+    -WorkerSpawning(randonnumber: int, previousOffset: float, zTrans: float): float
+    -OnMouseDown()
+    +Spawning()
+    +EnergonStationCreation()
+    +getdisplayCollectorScreenStatus(): bool
+    +setdisplayCollectorScreenStatus(screenStatus: bool)
+    +closeCollectorWindow()
+    +getCreditsAmount(): int
+    +setCreditsAmount(creditsAmount: int)
+    +getEnergonAmount(): int
+    +setEnergonAmount(energonAmount: int)
+    +barrackCreation()
+    -BarrackWorkerSpawning(randonnumber: int, previousOffset: float, zTrans: float): float
+    +SpawningBarrackWorkers() 
+    +getBarrackWorkersAmount(): int
+    +setBarrackWorkerAmount(workersAmount: int)
+    }
+
+class Worker {
+    -collector: GameObject
+    -energonAmount: int = 0;
+    -takingAmounFromDeposi:int = 1;
+    -workerSate: bool
+    -pozitionOfCollector: Vector3
+    -Start()
+    -Update()
+    -workerNav: NavMeshAgent
+    +setDestination(energonPos: Vector3)
+    -OnTriggerEnter(other: Collider)
+    +setEnergonInWorker(energonAmoun: int)
+    +getEnergonAmount(): int
+    +getEnergonTakingAmount(): int
+    +isWorkerAssighed(): bool
+    +setWorkerState(state: bool)
+    +getEnergonStationPozition(): Vekctor3
+    +setEnergonStationPozition(coPozition: Vector3)
+}
+class barrackWorker
+{
+   -barrack: GameObject
+   -playerbase: GameObject
+   -workersate: bool
+   -Start()
+   -Update()
+   +SetDestination(barrackPos: Vector3)
+   -OnTriggerEnter(other: Collider)
+}
+class TimeCountDown {
+    -timeStart: float
+    -nameBtn: String
+    -starBtn: Button
+    -playerbase: Base
+    -createbuilding: Button
+    -startCountdown: bool = false;
+    -textbox: Text
+    -startingTime: float = 0.0f
+    -Start()
+    -Update()
+    +startTimer()   
+}
+
+class BuildMiningStation{
+    -depositState: bool
+    -Start()
+    -getEnergonDepositState(): bool
+    -setDepositState(depState: bool)
+    -getDeposiPoint(): Vector3
+}
+class BuildBarrack{
+    +getBarrackPoint(): Vector3
+}
+
+class PlayerEnergonStPoint {
+    -energon: int
+    -Start()
+    -OnTriggerEnter(other: Collider)
+    -getStoragePointPosition(): Vector3
+    +getTakenEnergonAmount(): int
+    +setTakenEnergonAmount(energonAM: int)
+}
+
+class Energon{
+    -availableEnergon: int
+    -Start()
+    -Update()
+    -OnMouseDown()
+    -OnTriggerEnter(other: Collider)
+    -getCollectorPosition(): Vektor3
+}
+
+Base<.left.Worker
+Base<.right.barrackWorker
+Base-down-TimeCountDown
+Worker..>TimeCountDown
+barrackWorker..>TimeCountDown
+Worker-up-BuildMiningStation
+barrackWorker-up-BuildBarrack
+PlayerEnergonStPoint..>Base
+Worker--Energon
+Energon--PlayerEnergonStPoint
+Base<.left.BuildMiningStation
+Base<.left.BuildBarrack
+
+@enduml

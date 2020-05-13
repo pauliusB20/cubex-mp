@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8953599976680639628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8953599976680639630}
+  - component: {fileID: 8953599976680639631}
+  m_Layer: 0
+  m_Name: UserAccountInventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8953599976680639630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953599976680639628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8953599976680639631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8953599976680639628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd3c2e3ba201934fab49c3ea6510081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlSendItemData: http://193.219.91.103:2096/cit
+  urlToReceiveAllUserItems: http://193.219.91.103:2096/gameUserItems
+  urlToReceiveAllGameItemCh: http://193.219.91.103:2096/gitemch
+  itemTransactionUrlDel: http://193.219.91.103:2096/deleteItemTr
+  u_id: 1
+  areItemsStored: 0
+  itemsFolderUrl: Assets/AssetData/
+  itemContentText: {fileID: 0}
+  allItemsArePresented: 0
+  tempStorageCreated: 0
+  itemsSent: 0
+  failedSendingFiles: 0
+  filePaths: []
+  storedAssetItems: []
+  logInMg: {fileID: 0}
+  gamecnf: {fileID: 11400000, guid: 85f3afcd1f2dd1948b4885f0d7de5aea, type: 2}
+  userItemsInDB: []
+  userItemChInDB: []
+  currentUserItemsDetails: []
+  templateCodes: []
+  btnUIInvTag: iteminvb
+  inventoryPanel: {fileID: 0}
+  inventoryBtns: []
+  btnAmount: 0
+  saveInvBtns: 0
+  invAccessBtnFromLogIn: {fileID: 0}
+  userItemButton: {fileID: 4949913976345172619, guid: 6bc1f04b145da1d4889b33738fdde4de,
+    type: 3}
+  loadingScreen: {fileID: 0}
+  menuCanvas: {fileID: 0}
+  iteminfo: {fileID: 11400000, guid: 53caf20ffec429c4ea2d941711d78845, type: 2}
+  buttonIndex: 0
+  loggedInUserItemCount: 0
+  newbtnPositionX: 0
+  btnPosOffsetX: 100
+  btnMaxPositionX: 330
+  newbtnPositionY: 0
+  btnPosOffsetY: -10
+  btnMaxPositionY: 330
+  refreshInventoryDelay: 5

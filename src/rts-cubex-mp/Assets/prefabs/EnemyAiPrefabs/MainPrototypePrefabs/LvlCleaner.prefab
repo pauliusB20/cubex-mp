@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5239196788545886765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5239196788545886755}
+  - component: {fileID: 5239196788545886764}
+  m_Layer: 0
+  m_Name: Cleaner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5239196788545886755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239196788545886765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5239196788545886764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239196788545886765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec0bf9859540854db13181f08e0c9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTroopList: {fileID: 11400000, guid: c225fbfb7ee2d0a4f93e5ad2a2fa3c57, type: 2}
+  baseTroopUpgradesList: {fileID: 11400000, guid: 9261c43ee63d7084997d0c44f9555687,
+    type: 2}
+  baseBuildingUpgradesList: {fileID: 11400000, guid: f46afb97ce3b3c246b4cf624a8e886a0,
+    type: 2}
+  originalTroopList: {fileID: 11400000, guid: d07df8fc5ca7c2a4cb0a3996c8d26331, type: 2}
+  originalBaseTroopUpgradesList: {fileID: 11400000, guid: aeadadae722553b4facc3632ada01fdf,
+    type: 2}
+  originalBaseBuildUpgradesList: {fileID: 11400000, guid: 72000a4c5682a784d8f27de898cfa997,
+    type: 2}

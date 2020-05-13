@@ -1,0 +1,114 @@
+@startuml
+skinparam linetype ortho
+skinparam cardBorderColor #000000
+skinparam sequence {
+	ArrowColor #000000
+	LifeLineBorderColor #000000
+	LifeLineBackgroundColor #000000
+	
+
+}
+scale 2
+
+class SelectAll
+{
+    -size: int
+    +selectAllUnits()
+}
+class Click
+{
+    -clickablesLayer: LayerMask
+    -Update()
+}
+class ClickOn
+{
+    -red: Material
+    -green: Material
+    -myRend: MeshRenderer
+    +isSelected: bool
+
+    -Start()
+    +ClickMe()
+    +GetSelected(): bool
+    +GetPosition(): Vector3
+    +GetGreen(): Material
+    +SetSelected(sel: bool)
+}
+class TroopLaserMovement
+{
+    -damagePoints: int
+    -laserMove: Rigidbody
+    -thrust: float
+
+    -Start()
+    -Updater()
+    -OnTriggerEnter(other: Collider)
+}
+class TroopFire
+{
+    -firePoint: Transform
+    -projectPrefab: Rigidbody
+    -launchForce: float
+    -inRange: LookAtEnemy
+    +fireRate: float
+    -nexFire: float
+
+    -Start()
+    +Update()
+    -Shoot()
+    +getUnitPosition(): Vector3
+}
+class LookAtEnemy
+{
+    -Troop: GameObject
+    -Target: Fire2
+    -isEnemyNear: bool
+
+    -Update()
+    -OnTriggerEnter(other: Collider)
+    -OnTriggerExit(other: Collider)
+    -getIsEnemyNear() 
+}
+class Move
+{
+    -agent: NavMeshAgent
+    -click: ClickOn
+    -UnitPosition: GameObject
+    +getUnitPosition: Vector3
+
+    -Start()
+    -Update()
+    -unitMove()
+}
+class TimedSpawn
+{
+    +spawnee: GameObject
+    +spawnButton: Button
+    +exitButton: Button
+    +stopSpawning: bool
+    +spawnDelay: float
+    -buttonClicked: bool
+    -unitPosition: Transform
+
+    +SpawnUnits()
+    -Spawn(): IEnumerator
+    -spawnObject()
+}
+class Barracks_menu
+{
+    +menu: GameObject
+    +OnMouseDown()
+    +openMenu()
+}
+
+ClickOn ..left..> SelectAll
+ClickOn ..up..> Click
+ClickOn ..right..> Move
+SelectAll ..right..> Barracks_menu
+LookAtEnemy -up- Move
+TroopFire -up- LookAtEnemy
+TroopFire ..right..> TroopLaserMovement
+Move ..right..> TimedSpawn
+TimedSpawn ..up..> Barracks_menu 
+
+@enduml

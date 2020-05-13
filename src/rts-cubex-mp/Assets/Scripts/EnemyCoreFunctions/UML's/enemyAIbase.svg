@@ -1,0 +1,304 @@
+#Enemy AI class diagram
+
+@startuml
+skinparam linetype ortho
+skinparam cardBorderColor #000000
+skinparam sequence {
+	ArrowColor #000000
+	LifeLineBorderColor #000000
+	LifeLineBackgroundColor #000000
+	
+
+}
+scale 2
+
+   
+        class EnemyAIBase #FFFFFF {
+            -objectScanner: GameObject
+            -objectScanner: objScannerGun
+            -rotationSpeed: float
+            -areAllDepositsFound: bool
+            -depositLength: int
+            -maxDistanceToDeposit: float
+            -depositPoints: List<DepositPoint>
+            -canNotSort: bool
+            -coolDownDelay: float
+            -startSpawningWorkers: bool
+
+            -Start()
+            -Update()
+            -turnAndCountDeposits()
+            -scannForEnergonDeposits()
+            -getDepositLength(): int
+            +getDepositPoints()
+            -sortDepositPointList()
+            -countdownTilSort(): IEnumerator
+            -printDepositPositions()
+            +getBasePosition(): Vector3
+            +getDepositFoundState(): bool
+            +canStartSpawningWor    kers():bool
+
+        }
+    
+    
+
+        interface EnemyAIBaseInterface #FFFFFF
+        {
+            -turnAndCountDeposits()
+            -scannForEnergonDeposits()
+            -getDepositLength(): int
+            +getDepositPoints()
+            -sortDepositPointList()
+            -countdownTilSort(): IEnumerator
+            -printDepositPositions()
+            +getBasePosition(): Vector3
+            +getDepositFoundState(): bool
+            +canStartSpawningWorkers():bool
+        }
+        class MillitaryBaseUnit #FFFFFF
+        {
+            -unitName: string
+            -unitModel: GameObject
+            -price: int
+
+            +MillitaryBaseUnit(name: string, uModel: GameObject, price: int)
+            +getPrice(): int
+            +getUnitName(): int
+            +getUnitName(): string
+            +getUnitModel(): GameObject
+        }
+    
+      
+        class WorkerAIManager #FFFFFF
+        {
+            -aiWorker: GameObject
+            -baseUnitSpawnPoint: Transform
+            -destinationPointIndex: int
+            -atm: AITroopManager
+            -eb: EnemyAIBase
+            -am: AIResourcesManagement
+            -workers: List<WorkerUnit>
+            -depositIndex: int
+
+            -Start()
+            -Update()
+            -spawnWorker()
+            +setDepsoitIndex(i: int)
+            +getWorkerUnitPrice(): int
+        }
+        class DepositPoint #FFFFFF
+        {
+            -distanceToThisObject: float
+            -depoPosition: Vector3
+            -objName: string
+
+            +DepositPoint()
+            +getPosition(): Vector3
+            +getDistance(): float
+            +toString(): string
+        }
+        class ListSort #FFFFFF
+        {
+            +heapSort(points: List<DepositPoint>)
+            -Heapify(points: List<DepositPoint>, length: int, i: int)
+        }
+        class Collector #FFFFFF
+        {
+            -availableEnergon: int
+            -energonTakingAmount: int
+            -avaialbleWorkerPosition: int
+            -enemyBase: EnemyAIBase
+            
+
+            -Start()
+            +getCollectorPosition(): Vector3
+            -OnTriggerEnter(otherOther: Collider)
+            +getAvailablePosition(): int
+            +setAvailablePosition(position: int)
+        }
+        
+        class AIdepositStorage  #FFFFFF
+        {
+            -eb: EnemyAIBase
+            -am: AIResourcesManagement
+            -wm: WorkerAIManager
+            -moveNextDepositPosition: bool
+            depositIndex: int
+
+            -Start()
+            -Update()
+            -OnTriggerEnter(otherOther: Collider)
+            +getDepositStoragePosition(): Vector3
+
+        }
+        class AIResourcesManagement #FFFFFF
+        {
+            -AIcubeCredits: int
+            -AIenergon: int
+            #creditConstant: float
+            -conversionAmount: int
+            -wam: WorkerAIManager
+            -atm: AITroopManager
+            -creditRezerves: List<CreditRezerves>
+            
+            -Start()
+            -purchasingSystem()
+            +setAICubeCredits()
+            +buy()
+            +addEnergonToBase()
+            -checkAndConvertToCubeCredits()
+            +getAICubeCredits(): int
+            +getAIenergon(): int
+            +getCreditReserves(): List<CreditRezerve>
+            +printRezerves()
+        }
+       class EnemyAIWorker #FFFFFF
+        {
+            -collector: GameObject
+            -energon: int
+            -miningSTSpawnPosition: Vector3
+            -aiBasePosition: Vector3
+            -nav: NavMeshAgent
+            -destinationPoint: Vector3
+            -isCollectorDestroyed: bool
+
+            -Start()
+            -Update()
+            -move()
+            -setDestinationPoint(pos: Vector3)
+            -OnTriggerEnter(other: Collider)
+            +getDestinationPoint(): Vector3
+            +setMiningPosition(pos: Vector3)
+            +getMiningPosition(): Vector3
+            +getEnergon(): int
+            +takeSetEnergon(e: int)
+            +setCollectorDestructionState(state: bool)
+            +CollectorDestroyed(): bool
+        }
+         class WorkerUnit #FFFFFF
+        {
+            -string workerType
+
+            +WorkerUnit(name: string, model: GameObject, troopType: string, price: int)
+            +getWorkerType(): string
+            +toString(): string
+
+        }
+        
+     
+    
+         class AITroopManager #FFFFFF
+        {
+            -buildingPoints: List<Transform>
+            -barracksPrice: int
+            -troopBarracks: GameObject
+            -buildDelay: float
+
+            -am: AIResourcesManagement
+            -structIndex: int
+            -prieviousRandom: int
+            -isPurchasing: bool
+
+            +buildAStructure()
+            +generateRandomNumber()
+            +hasAtleastOneBarracks()
+            -spawnBarracksStructure()
+            +Purchasing(): bool
+            +getBarracksPrice(): int
+            +getLightTroopUnitPrice(): int
+
+        }
+        
+
+        interface AITroopManagerInterface #FFFFFF
+        {
+            -buildAStructure()
+            -spawnBarracksStructure()
+            -generateRandomNumber()
+            -hasAtleastOneBarracks(): bool
+            -Purchasing(): bool
+            -getBarracksPrice(): int
+            -getLightTroopUnitPrice(): int
+        }  
+        class TroopUnit #FFFFFF
+        {
+            -troopType: string
+
+            +TroopUnit(name: string, model: GameObject, troopType: string, price: int)
+            +getTroopType(): string
+            +toString(): string
+        } 
+        class EnemyAILightUnit #FFFFFF
+        {
+            -eb: EnemyAIBase
+            -troopNav: NavMeshAgent
+            -currentDestination: Vector3
+            -depositIndex: int
+
+            -Start()
+            -Update()
+            -mode()
+            -OnTriggerEnter(other: Collider)
+            -setDestination(pos: Vector3)
+         }
+        class SpawnTroopUnit #FFFFFF
+        {
+            -troopUnit: GameObject
+            -timeBeforeSpawn: float = 2f
+            -spawnPosition: Transform
+            -minPatrollUnitsCount: int = 3
+            -rezerveIndex: int = 2
+            -arm: AIResourcesManagement
+            -atm: AITroopManager
+            -eb: EnemyAIBase
+            -troops: List<TroopUnit>
+
+            -Start()
+            -Update()
+            -Spawn()
+            -hasMinPatroll(): bool
+
+        }
+        class CreditRezerve #FFFFFF
+        {
+            -maxRezerve: int
+            -currentRezerve: int
+            -isFull: bool
+            
+            +addCredits(credits: int)
+            +purchase(price: int)
+            +getCredits(): int
+            +Full(): bool
+            +setMaxRezerve(amount: int)
+            +getMaxRezerve(): int
+            +toString(): string
+        }
+
+
+WorkerAIManager ...left...> EnemyAIBase 
+WorkerAIManager --left-- EnemyAIWorker
+WorkerAIManager ..left..> AIResourcesManagement
+AIResourcesManagement ..up..> AITroopManager
+SpawnTroopUnit ...right...>  AITroopManager
+AITroopManager "<<use>>"..right..> AITroopManagerInterface
+EnemyAIBase "<<use>>" ..left..> EnemyAIBaseInterface
+AITroopManager ..left..> EnemyAIWorker
+AIResourcesManagement ...up...> CreditRezerve
+WorkerAIManager ..up..> CreditRezerve
+SpawnTroopUnit ....> CreditRezerve
+AITroopManager ..right..> CreditRezerve
+
+AIdepositStorage ..right..> Collector
+EnemyAIWorker ....> Collector
+EnemyAIBase ....right....> EnemyAIWorker
+EnemyAIBase ...left...> ListSort
+EnemyAIBase ......> AIdepositStorage
+ListSort ....> DepositPoint
+EnemyAIBase ....> DepositPoint 
+
+EnemyAILightUnit .right.> SpawnTroopUnit
+TroopUnit --left--|> MillitaryBaseUnit
+WorkerUnit --right--|>  MillitaryBaseUnit
+EnemyAILightUnit ..left..> TroopUnit
+EnemyAIWorker ..up..> WorkerUnit 
+@enduml

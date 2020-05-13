@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fba152c12c19e24fa15fdea3c4e591d, type: 3}
+  m_Name: Research
+  m_EditorClassIdentifier: 
+  sResearchLevel: 0
+  sTroopLevel: 1
+  sHeavyTroopLevel: 1
+  sMaxHP: 100
+  sHeavyMaxHP: 300
+  sDamage: 10
+  sHeavyTroopScalingCoef: 300
+  sLightTroopScalingCoef: 100
+  sTroopResearchHealth: 250
+  sBarrackHealth: 350
+  researchLevel: 0
+  troopLevel: 1
+  heavyTroopLevel: 1
+  maxHP: 100
+  heavyMaxHP: 300
+  damage: 10
+  heavyTroopScalingCoef: 300
+  lightTroopScalingCoef: 100
+  troopResearchHealth: 250
+  barrackHealth: 350
+  sBuildingResearchLevel: 1
+  sMaxLevelOfResearchCenter: 5
+  sMinNeededEnergonAmountForResearch: 10
+  sMinNeededCreditsAmountForResearch: 10
+  sUpgradeBuildingResearchLevelHP: 10
+  sPlayerScoreEarned: 10
+  sBuildingResearchHealth: 250
+  buildingResearchLevel: 1
+  maxLevelOfResearchCenter: 5
+  minNeededEnergonAmountForResearch: 10
+  minNeededCreditsAmountForResearch: 10
+  upgradeBuildingResearchLevelHP: 10
+  playerScoreEarned: 10
+  buildingResearchHealth: 250

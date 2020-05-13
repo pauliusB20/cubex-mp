@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - energonFactory
+  - Worker
+  - Depo
+  - Panel
+  - DepositArea
+  - Arrow
+  - Unit
+  - Barracks
+  - TroopsResearch
+  - PlayerBase
+  - PBase
+  - Enemy
+  - EnemyArrow
+  - EBWorker
+  - RMCenter
+  - barracks
+  - EMSite
+  - BuildAreaAI
+  - EnemyBase
+  - EBase
+  - SpinnerRAnim
+  - playerTroop
+  - eADome
+  - enemyTroop
+  - EAspingun
+  - BuildArea
+  - LvlMap
+  - Fire
+  - PlayerBarracks
+  - WallTest
+  - EBBarracks
+  - EBRCenter
+  - EMDef
+  - EmDefBody
+  - EBCollector
+  - EMgr
+  - Ground
+  - EBColBody
+  - EWRA
+  - accItemMgr
+  - itemBtnInv
+  - iteminvb
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Energon
+  - PlayerBase
+  - BuildArea
+  - Ground
+  - EnemyBase
+  - clickablesLayer
+  - enemyUnits
+  - enemyMilitary
+  - PlayerBackEnd
+  - MEnemyBase
+  - TestWalls
+  - LvlMap
+  - TroopArrow
+  - enemyRange
+  - AreaScanner
+  - InvItemsMgr
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
